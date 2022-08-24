@@ -3,19 +3,15 @@ layout: default
 title: box leads, teams and strategic partners
 ---
 
-<h2><a href="https://future.nhs.uk/DataAnalytics/view?objectId=34562160">AnalystX Process Mining Centre of Excellence</a></h2>
+<h2><a href="https://future.nhs.uk/DataAnalytics/view?objectId=34562160">Dataversity</a></h2>
 <p>
-  The Centre of Excellence will upload new learning material from organisations periodically. This will ensure new learning material is available for our learners and community members. 
+  Dataversity is a place for non Data and Analytics users to gain further skills and knowledge when handling data and analytics products 
 </p>
 <h2>Current Members:</h2>
 <ul>
   <li><b>Suki Panesar</b> - NHS England</li>
   <li><b>Alex Cheung</b> - NHS England</li>
-  <li><b>Simon Snowden</b> - NHS England</li>
-  <li><b>Jiri Chard</b> - NHS England</li>
   <li><b>Sarah Blundell</b> - NHS England</li>
-   <li><b>Victroia Cornelius</b> - NHS England</li>
-  <li><b>Alex Bosche</b> - NHS England</li>
  </ul>
  <h2>Strategic partners:</h2>
  
