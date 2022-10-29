@@ -4,8 +4,8 @@ title:             AnalystX Academy - Dataversity
 email:             England.analystx@nhs.net
 author:            AnalystX
 description:       "Centre of Excellence - Dataversity"
-url:               "https://analystx.uk/"
-baseurl:           "dataversity/"
+url:               "https://analystx.uk"
+baseurl:           "dataversity"
 github_username:   nhs-analystx
 linkedin_username: 
 date_format:       "%b %-d, %Y"
