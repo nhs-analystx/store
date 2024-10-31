@@ -49,6 +49,27 @@
         <!-- Repeat for each product in NHS Products Marketplace -->
       </div>
     </section>
+    <section id="nhs-products-section" class="nhsuk-section">
+  <h2 class="nhsuk-heading-l">NHS Product Marketplace</h2>
+  <p class="nhsuk-body">Explore products tailored specifically for NHS needs.</p>
+
+  <!-- Search Bar for NHS GitHub Repositories -->
+  <form id="nhs-github-search-form" class="nhsuk-search" role="search" onsubmit="return searchNHSGitHub(event)">
+    <label class="nhsuk-label" for="search-query">Search NHS Repositories:</label>
+    <input
+      type="text"
+      id="search-query"
+      class="nhsuk-input"
+      placeholder="Enter keywords"
+      required
+    />
+    <button type="submit" class="nhsuk-button">Search</button>
+  </form>
+
+  <!-- Results Section -->
+  <div id="search-results" class="nhsuk-grid-row"></div>
+</section>
+
   </main>
   
   <footer class="nhsuk-footer">
