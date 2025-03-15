@@ -11,6 +11,14 @@ layout: home_page
 </head>
 <body class="nhsuk-body">
 
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Information & AI Case Studies</title>
+    <link rel="stylesheet" href="https://unpkg.com/nhsuk-frontend@7.1.0/dist/nhsuk.css">
+</head>
+<body class="nhsuk-body">
+
     <div class="nhsuk-width-container">
         <header class="nhsuk-header">
             <div class="nhsuk-width-container">
@@ -92,13 +100,16 @@ layout: home_page
 
                 caseStudies.forEach(cs => {
                     const studyHTML = `
-                        <div class="nhsuk-grid-column-one-half">
-                            <div class="nhsuk-card">
+                        <div class="nhsuk-grid-column-one-third">
+                            <div class="nhsuk-card nhsuk-card--clickable">
+                                <div class="nhsuk-card__img">
+                                    <img src="${cs.imageUrl}" alt="Image of ${cs.product}" class="nhsuk-image">
+                                </div>
                                 <div class="nhsuk-card__content">
                                     <h3 class="nhsuk-heading-m">${cs.product}</h3>
                                     <p><strong>Country:</strong> ${cs.country}</p>
                                     <p><strong>AI Agent:</strong> ${cs.aiAgent}</p>
-                                    <a href="${cs.articleLink}" class="nhsuk-link" target="_blank">Read more</a>
+                                    <a href="${cs.articleLink}" class="nhsuk-button nhsuk-button--secondary" target="_blank">Read more</a>
                                 </div>
                             </div>
                         </div>
@@ -114,8 +125,6 @@ layout: home_page
     </script>
 
 </body>
-
-
   </footer>
 
   <script src="path/to/nhsuk-frontend.min.js"></script>
