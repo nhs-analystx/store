@@ -32,50 +32,84 @@
       </div>
     </section>
 
-    <!-- NHS Products Section -->
-    <section id="nhs-products-section" class="nhsuk-section">
-      <h2 class="nhsuk-heading-l">NHS Product Marketplace</h2>
-      <p class="nhsuk-body">Explore products tailored specifically for NHS needs.</p>
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-one-third">
-          <div class="nhsuk-card">
-            <div class="nhsuk-card__content">
-              <h3 class="nhsuk-card__heading">NHS Product 1</h3>
-              <p class="nhsuk-body">Brief description of NHS Product 1.</p>
-              <a href="#" class="nhsuk-link nhsuk-link--external">Learn More</a>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Company Information</title>
+    <link rel="stylesheet" href="https://unpkg.com/nhsuk-frontend@7.1.0/dist/nhsuk.css">
+</head>
+<body class="nhsuk-body">
+
+    <div class="nhsuk-width-container">
+        <header class="nhsuk-header">
+            <div class="nhsuk-width-container">
+                <a href="/" class="nhsuk-header__logo">
+                    NHS Service Manual - Company Listings
+                </a>
             </div>
-          </div>
-        </div>
-        <!-- Repeat for each product in NHS Products Marketplace -->
-      </div>
-    </section>
-    <section id="nhs-products-section" class="nhsuk-section">
-  <h2 class="nhsuk-heading-l">NHS Product Marketplace</h2>
-  <p class="nhsuk-body">Explore products tailored specifically for NHS needs.</p>
+        </header>
 
-  <!-- Search Bar for NHS GitHub Repositories -->
-  <form id="nhs-github-search-form" class="nhsuk-search" role="search" onsubmit="return searchNHSGitHub(event)">
-    <label class="nhsuk-label" for="search-query">Search NHS Repositories:</label>
-    <input
-      type="text"
-      id="search-query"
-      class="nhsuk-input"
-      placeholder="Enter keywords"
-      required
-    />
-    <button type="submit" class="nhsuk-button">Search</button>
-  </form>
+        <main class="nhsuk-main-wrapper">
+            <h1 class="nhsuk-heading-l">Submit Company Information</h1>
 
-  <!-- Results Section -->
-  <div id="search-results" class="nhsuk-grid-row"></div>
-</section>
+            <form id="company-form" enctype="multipart/form-data">
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="company-name">Company Name</label>
+                    <input class="nhsuk-input" id="company-name" name="companyName" type="text" required>
+                </div>
 
-  </main>
-  
-  <footer class="nhsuk-footer">
-    <div class="nhsuk-footer__content">
-      <p class="nhsuk-footer__text">NHS Solution Exchange Store © NHS UK</p>
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="contact-name">Contact Name</label>
+                    <input class="nhsuk-input" id="contact-name" name="contactName" type="text" required>
+                </div>
+
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="contact-email">Contact Email</label>
+                    <input class="nhsuk-input" id="contact-email" name="contactEmail" type="email" required>
+                </div>
+
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="product-description">Product Description</label>
+                    <textarea class="nhsuk-textarea" id="product-description" name="productDescription" rows="4" required></textarea>
+                </div>
+
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="company-logo">Upload Company Logo</label>
+                    <input class="nhsuk-file-upload" id="company-logo" name="companyLogo" type="file" accept="image/*" required>
+                </div>
+
+                <button class="nhsuk-button" type="submit">Submit</button>
+            </form>
+
+            <div id="response-message"></div>
+        </main>
     </div>
+
+    <script>
+        document.getElementById('company-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+
+            try {
+                const response = await fetch('/submit-company', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+                document.getElementById('response-message').innerHTML = '<p class="nhsuk-success-message">' + result.message + '</p>';
+                event.target.reset();
+            } catch (error) {
+                document.getElementById('response-message').innerHTML = '<p class="nhsuk-error-message">Submission failed. Please try again.</p>';
+            }
+        });
+    </script>
+
+</body>
+
+
+    
   </footer>
 
   <script src="path/to/nhsuk-frontend.min.js"></script>
