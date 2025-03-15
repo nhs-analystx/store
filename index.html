@@ -2,67 +2,7 @@
 layout: home_page
 ---
 
-<body class="nhsuk-body">
 
-    <div class="nhsuk-width-container">
-
-        <main class="nhsuk-main-wrapper">
-            <h1 class="nhsuk-heading-l">Submit Company Information</h1>
-
-            <form id="company-form" enctype="multipart/form-data">
-                <div class="nhsuk-form-group">
-                    <label class="nhsuk-label" for="company-name">Company Name</label>
-                    <input class="nhsuk-input" id="company-name" name="companyName" type="text" required>
-                </div>
-
-                <div class="nhsuk-form-group">
-                    <label class="nhsuk-label" for="contact-name">Contact Name</label>
-                    <input class="nhsuk-input" id="contact-name" name="contactName" type="text" required>
-                </div>
-
-                <div class="nhsuk-form-group">
-                    <label class="nhsuk-label" for="contact-email">Contact Email</label>
-                    <input class="nhsuk-input" id="contact-email" name="contactEmail" type="email" required>
-                </div>
-
-                <div class="nhsuk-form-group">
-                    <label class="nhsuk-label" for="product-description">Product Description</label>
-                    <textarea class="nhsuk-textarea" id="product-description" name="productDescription" rows="4" required></textarea>
-                </div>
-
-                <div class="nhsuk-form-group">
-                    <label class="nhsuk-label" for="company-logo">Upload Company Logo</label>
-                    <input class="nhsuk-file-upload" id="company-logo" name="companyLogo" type="file" accept="image/*" required>
-                </div>
-
-                <button class="nhsuk-button" type="submit">Submit</button>
-            </form>
-
-            <div id="response-message"></div>
-        </main>
-    </div>
-
-    <script>
-        document.getElementById('company-form').addEventListener('submit', async (event) => {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-
-            try {
-                const response = await fetch('/submit-company', {
-                    method: 'POST',
-                    body: formData
-                });
-
-                const result = await response.json();
-                document.getElementById('response-message').innerHTML = '<p class="nhsuk-success-message">' + result.message + '</p>';
-                event.target.reset();
-            } catch (error) {
-                document.getElementById('response-message').innerHTML = '<p class="nhsuk-error-message">Submission failed. Please try again.</p>';
-            }
-        });
-    </script>
-
-</body>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -175,6 +115,69 @@ layout: home_page
 
 </body>
 
+br
+
+<body class="nhsuk-body">
+
+    <div class="nhsuk-width-container">
+
+        <main class="nhsuk-main-wrapper">
+            <h1 class="nhsuk-heading-l">Submit Company Information</h1>
+
+            <form id="company-form" enctype="multipart/form-data">
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="company-name">Company Name</label>
+                    <input class="nhsuk-input" id="company-name" name="companyName" type="text" required>
+                </div>
+
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="contact-name">Contact Name</label>
+                    <input class="nhsuk-input" id="contact-name" name="contactName" type="text" required>
+                </div>
+
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="contact-email">Contact Email</label>
+                    <input class="nhsuk-input" id="contact-email" name="contactEmail" type="email" required>
+                </div>
+
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="product-description">Product Description</label>
+                    <textarea class="nhsuk-textarea" id="product-description" name="productDescription" rows="4" required></textarea>
+                </div>
+
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="company-logo">Upload Company Logo</label>
+                    <input class="nhsuk-file-upload" id="company-logo" name="companyLogo" type="file" accept="image/*" required>
+                </div>
+
+                <button class="nhsuk-button" type="submit">Submit</button>
+            </form>
+
+            <div id="response-message"></div>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('company-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+
+            try {
+                const response = await fetch('/submit-company', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+                document.getElementById('response-message').innerHTML = '<p class="nhsuk-success-message">' + result.message + '</p>';
+                event.target.reset();
+            } catch (error) {
+                document.getElementById('response-message').innerHTML = '<p class="nhsuk-error-message">Submission failed. Please try again.</p>';
+            }
+        });
+    </script>
+
+</body>
     
   </footer>
 
